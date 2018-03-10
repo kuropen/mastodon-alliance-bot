@@ -55,7 +55,7 @@ var check_streaming_authorization = function(conf) {
             console.log(response.statusCode, response.statusMessage, response.req.path, response.req._header);
             reject(false);
         });
-        client.connect('wss://' + conf.domain + '/api/v1/streaming/?stream=hashtag&tag=' + conf.hashtag);
+        client.connect('wss://' + conf.domain + '/api/v1/streaming/?stream=hashtag&tag=' + encodeURIComponent(conf.hashtag));
     });
 };
 
